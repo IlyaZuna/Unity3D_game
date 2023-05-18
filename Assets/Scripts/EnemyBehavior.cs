@@ -9,6 +9,7 @@ public class EnemyBehavior : MonoBehaviour
     public Transform patrolRoute;
     public List<Transform> locations;
 
+    [SerializeField] private Animator _animator;
     private int locationIndex = 0;
     private NavMeshAgent agent;
     private SphereCollider col;

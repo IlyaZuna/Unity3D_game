@@ -22,7 +22,9 @@ public class PlayerBehavior : MonoBehaviour
     private float vInput;
     private float hInput;
     
-    private Rigidbody _rb;
+    [SerializeField] private Rigidbody _rb;
+    [SerializeField] private FixedJoystick _joystick;
+    //[SerializeField] private Animator _animator; 
     private CapsuleCollider _col;
     private GameBehavior _gameManager;
     private MeshRenderer _rend;
@@ -50,7 +52,7 @@ public class PlayerBehavior : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             isGrounded=false;
-            GetComponent<Rigidbody>().AddForce(new Vector3(0, 100, 0));
+            GetComponent<Rigidbody>().AddForce(new Vector3(0, 50, 0));
         }
         
         /* 
