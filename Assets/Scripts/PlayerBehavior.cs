@@ -17,14 +17,12 @@ public class PlayerBehavior : MonoBehaviour
     public float bombSpawnX = 0f;
     public float bombSpawnY = 0f;
     public float bombSpawnZ = 0f;
-    public bool isGrounded;
+
 
     private float vInput;
     private float hInput;
-    
-    [SerializeField] private Rigidbody _rb;
-    [SerializeField] private FixedJoystick _joystick;
-    //[SerializeField] private Animator _animator; 
+    public bool isGrounded;
+    private Rigidbody _rb;
     private CapsuleCollider _col;
     private GameBehavior _gameManager;
     private MeshRenderer _rend;
@@ -52,7 +50,7 @@ public class PlayerBehavior : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             isGrounded=false;
-            GetComponent<Rigidbody>().AddForce(new Vector3(0, 50, 0));
+            GetComponent<Rigidbody>().AddForce(new Vector3(0, 100, 0));
         }
         
         /* 
