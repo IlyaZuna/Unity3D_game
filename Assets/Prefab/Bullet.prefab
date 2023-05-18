@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 633638578364577091}
   - component: {fileID: 4592867641286581941}
   - component: {fileID: 7088035023491693351}
-  - component: {fileID: -1812601577544869808}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -129,19 +128,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onscreenDelay: 3
---- !u!123 &-1812601577544869808
-LensFlare:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6426923263239226667}
-  m_Enabled: 1
-  m_Flare: {fileID: 0}
-  m_Color: {r: 1, g: 0.9797357, b: 0, a: 0}
-  m_Brightness: 1
-  m_FadeSpeed: 3
-  m_IgnoreLayers:
-    serializedVersion: 2
-    m_Bits: 6
-  m_Directional: 0

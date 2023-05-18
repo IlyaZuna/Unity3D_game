@@ -11,6 +11,9 @@ public class PlayerBehavior : MonoBehaviour
     public GameObject sphere;
     public float bulletSpeed = 50f;
     public float sphereSpeed = 10f;
+    public float bulletSpawnX = 0f;
+    public float bulletSpawnY = 0f;
+    public float bulletSpawnZ = 0f;
 
     private float vInput;
     private float hInput;
@@ -61,13 +64,13 @@ public class PlayerBehavior : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject newBullet = Instantiate(bullet, transform.position + new Vector3(1, 0, 0), this.transform.rotation) as GameObject;
+            GameObject newBullet = Instantiate(bullet, transform.position + new Vector3(bulletSpawnX, bulletSpawnY, bulletSpawnZ), this.transform.rotation) as GameObject;
             Rigidbody bulletRB = newBullet.GetComponent<Rigidbody>();
             bulletRB.velocity = this.transform.forward * bulletSpeed;
         }
         if (Input.GetMouseButtonDown(1))
         {
-            GameObject newSphere = Instantiate(sphere, transform.position + new Vector3(1, 0, 0), this.transform.rotation) as GameObject;
+            GameObject newSphere = Instantiate(sphere, transform.position + new Vector3(bulletSpawnX, bulletSpawnY, bulletSpawnZ), this.transform.rotation) as GameObject;
             Rigidbody sphereRB = newSphere.GetComponent<Rigidbody>();
             sphereRB.velocity = this.transform.forward * sphereSpeed;
         }
