@@ -37,8 +37,8 @@ public class EnemyBehavior : MonoBehaviour
         if (other.name == "Player")
         {
             agent.destination = player.position;
-            agent.speed = agent.speed + 3f;
-            col.radius = col.radius + 2;
+            agent.speed = agent.speed + 2f;
+            col.radius = col.radius + 1f;
             Debug.Log("Player detected - attack!");
         }
     }
@@ -46,8 +46,8 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (other.name == "Player")
         {
-            agent.speed = agent.speed - 3f;
-            col.radius = col.radius - 2;
+            agent.speed = agent.speed - 2f;
+            col.radius = col.radius - 1f;
 
             Debug.Log("Player out of range, resume patrol");
         }

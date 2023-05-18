@@ -14,10 +14,14 @@ public class PlayerBehavior : MonoBehaviour
     public float bulletSpawnX = 0f;
     public float bulletSpawnY = 0f;
     public float bulletSpawnZ = 0f;
+    public float bombSpawnX = 0f;
+    public float bombSpawnY = 0f;
+    public float bombSpawnZ = 0f;
+    public bool isGrounded;
 
     private float vInput;
     private float hInput;
-    private float sInput;
+    
     private Rigidbody _rb;
     private CapsuleCollider _col;
     private GameBehavior _gameManager;
@@ -33,11 +37,21 @@ public class PlayerBehavior : MonoBehaviour
 
     }
 
+    void OnCollisionEnter()
+    {
+        isGrounded = true;
+    }
+
     void Update()
     {
         vInput = Input.GetAxis("Vertical") * moveSpeed;
         hInput = Input.GetAxis("Horizontal") * rotateSpeed;
-        sInput = Input.GetAxis("Jump") * jumpVelocity;
+        
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            isGrounded=false;
+            GetComponent<Rigidbody>().AddForce(new Vector3(0, 100, 0));
+        }
         
         /* 
         this.transform.Translate(Vector3.forward * vInput *
@@ -70,7 +84,7 @@ public class PlayerBehavior : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(1))
         {
-            GameObject newSphere = Instantiate(sphere, transform.position + new Vector3(bulletSpawnX, bulletSpawnY, bulletSpawnZ), this.transform.rotation) as GameObject;
+            GameObject newSphere = Instantiate(sphere, transform.position + new Vector3(bombSpawnX, bombSpawnY, bombSpawnZ), this.transform.rotation) as GameObject;
             Rigidbody sphereRB = newSphere.GetComponent<Rigidbody>();
             sphereRB.velocity = this.transform.forward * sphereSpeed;
         }
