@@ -6162,7 +6162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   labelText: Collect all 7 items and win your freedom!
-  maxItems: 0
+  maxItems: 7
   showWinScreen: 0
   showLossScreen: 0
 --- !u!4 &1767115091
@@ -8262,6 +8262,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_Canvas_StarterAssetsInputs_TouchZones
       objectReference: {fileID: 0}
+    - target: {fileID: 726898551904087304, guid: 0afe37a749b25b849a6eb6db8e8a27de,
+        type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1997009143378986683, guid: 0afe37a749b25b849a6eb6db8e8a27de,
         type: 3}
       propertyPath: m_Color.a
@@ -8272,6 +8277,11 @@ PrefabInstance:
       propertyPath: playerInput
       value: 
       objectReference: {fileID: 4469006886716465461}
+    - target: {fileID: 3282455810389203735, guid: 0afe37a749b25b849a6eb6db8e8a27de,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5893870668490916175, guid: 0afe37a749b25b849a6eb6db8e8a27de,
         type: 3}
       propertyPath: m_Pivot.x
@@ -8384,13 +8394,28 @@ PrefabInstance:
       objectReference: {fileID: 192323520877083973}
     - target: {fileID: 8513898300357745570, guid: 0afe37a749b25b849a6eb6db8e8a27de,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513898300357745570, guid: 0afe37a749b25b849a6eb6db8e8a27de,
+        type: 3}
       propertyPath: magnitudeMultiplier
-      value: 2
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 8513898300357745571, guid: 0afe37a749b25b849a6eb6db8e8a27de,
         type: 3}
       propertyPath: m_Color.a
       value: 0.078431375
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513898300357745571, guid: 0afe37a749b25b849a6eb6db8e8a27de,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513898300695488774, guid: 0afe37a749b25b849a6eb6db8e8a27de,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0afe37a749b25b849a6eb6db8e8a27de, type: 3}
