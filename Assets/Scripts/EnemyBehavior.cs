@@ -14,6 +14,7 @@ public class EnemyBehavior : MonoBehaviour
     private NavMeshAgent agent;
     private SphereCollider col;
     private GameBehavior _gameManager;
+    private MeshRenderer _rend;
 
     void Start()
     {
@@ -21,6 +22,7 @@ public class EnemyBehavior : MonoBehaviour
         col = GetComponent<SphereCollider>();
         player = GameObject.Find("Player").transform;
         _gameManager = GameObject.Find("GameManager").GetComponent<GameBehavior>();
+        _rend = GetComponent<MeshRenderer>();
         InitializePatrolRoute();
         MoveToNextPatrolLocation();
     }
@@ -75,6 +77,21 @@ public class EnemyBehavior : MonoBehaviour
             {
                 Destroy(this.gameObject);
                 Debug.Log("Enemy down.");
+            }
+        }
+
+        if (collision.gameObject.name == "Player")
+        {
+            _gameManager.P_HP -= 1;
+        }
+        
+        if (_gameManager.E_HP <= 7)
+        {
+            _rend.material.SetColor("_Color", Color.yellow);
+
+            if (_gameManager.E_HP <= 5)
+            {
+                _rend.material.SetColor("_Color", Color.red);
             }
         }
 

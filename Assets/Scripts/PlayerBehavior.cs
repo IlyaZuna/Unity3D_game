@@ -11,10 +11,8 @@ public class PlayerBehavior : MonoBehaviour
     public GameObject sphere;
     public float bulletSpeed = 50f;
     public float sphereSpeed = 10f;
-    public float bulletSpawnX = 0f;
     public float bulletSpawnY = 0f;
     public float bulletSpawnZ = 0f;
-    public float bombSpawnX = 0f;
     public float bombSpawnY = 0f;
     public float bombSpawnZ = 0f;
 
@@ -47,11 +45,11 @@ public class PlayerBehavior : MonoBehaviour
         vInput = Input.GetAxis("Vertical") * moveSpeed;
         hInput = Input.GetAxis("Horizontal") * rotateSpeed;
         
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        /*if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             isGrounded=false;
-            GetComponent<Rigidbody>().AddForce(new Vector3(0, 100, 0));
-        }
+            GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpVelocity, 0));
+        }*/
         
         /* 
         this.transform.Translate(Vector3.forward * vInput *
@@ -71,20 +69,21 @@ public class PlayerBehavior : MonoBehaviour
 
         _rb.MoveRotation(_rb.rotation * angleRot);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
+            isGrounded = false;
             _rb.AddForce(Vector3.up * jumpVelocity, ForceMode.Impulse);
         }
 
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject newBullet = Instantiate(bullet, transform.position + new Vector3(bulletSpawnX, bulletSpawnY, bulletSpawnZ), this.transform.rotation) as GameObject;
+            GameObject newBullet = Instantiate(bullet, transform.position + new Vector3(0, bulletSpawnY, bulletSpawnZ), this.transform.rotation) as GameObject;
             Rigidbody bulletRB = newBullet.GetComponent<Rigidbody>();
             bulletRB.velocity = this.transform.forward * bulletSpeed;
         }
         if (Input.GetMouseButtonDown(1))
         {
-            GameObject newSphere = Instantiate(sphere, transform.position + new Vector3(bombSpawnX, bombSpawnY, bombSpawnZ), this.transform.rotation) as GameObject;
+            GameObject newSphere = Instantiate(sphere, transform.position + new Vector3(0, bombSpawnY, bombSpawnZ), this.transform.rotation) as GameObject;
             Rigidbody sphereRB = newSphere.GetComponent<Rigidbody>();
             sphereRB.velocity = this.transform.forward * sphereSpeed;
         }
@@ -94,7 +93,6 @@ public class PlayerBehavior : MonoBehaviour
     {
         if (collision.gameObject.name == "Enemy")
         {
-            _gameManager.P_HP -= 1;
             if (_gameManager.P_HP <= 7) 
             { 
                _rend.material.SetColor("_Color", Color.yellow);
