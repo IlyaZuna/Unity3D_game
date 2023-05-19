@@ -26,6 +26,7 @@ public class GameBehavior : MonoBehaviour
             _playerHP = value;
             Debug.LogFormat("Lives: {0}", _playerHP);
         }
+
     }
 
     public int E_HP

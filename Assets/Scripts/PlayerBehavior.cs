@@ -35,29 +35,29 @@ public class PlayerBehavior : MonoBehaviour
 
     }
 
-    void OnCollisionEnter()
+    /* void OnCollisionEnter()
     {
         isGrounded = true;
-    }
+    }*/
 
-    void Update()
+    /*void Update()
     {
         vInput = Input.GetAxis("Vertical") * moveSpeed;
         hInput = Input.GetAxis("Horizontal") * rotateSpeed;
         
-        /*if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             isGrounded=false;
             GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpVelocity, 0));
-        }*/
+        }
         
-        /* 
+        
         this.transform.Translate(Vector3.forward * vInput *
         Time.deltaTime);
         this.transform.Rotate(Vector3.up * hInput *
         Time.deltaTime);
-        */
-    }
+        
+    }*/
 
     void FixedUpdate()
     {
@@ -110,10 +110,6 @@ public class PlayerBehavior : MonoBehaviour
     void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.name == "Enemy")
-        {
-            //_rend.material.SetColor("_Color", Color.green);
-
-            //_mat.renderer.material.color = Color.blue;
-        }
+        { }
     }
 }

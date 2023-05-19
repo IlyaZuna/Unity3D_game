@@ -20,7 +20,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         col = GetComponent<SphereCollider>();
-        player = GameObject.Find("Player").transform;
+        player = GameObject.Find("PlayerArmature").transform;
         _gameManager = GameObject.Find("GameManager").GetComponent<GameBehavior>();
         _rend = GetComponent<MeshRenderer>();
         InitializePatrolRoute();
@@ -37,7 +37,7 @@ public class EnemyBehavior : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Player")
+        if (other.name == "PlayerArmature")
         {
             agent.destination = player.position;
             agent.speed = agent.speed + 2f;
@@ -47,7 +47,7 @@ public class EnemyBehavior : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
-        if (other.name == "Player")
+        if (other.name == "PlayerArmature")
         {
             agent.speed = agent.speed - 2f;
             col.radius = col.radius - 1f;
@@ -58,7 +58,7 @@ public class EnemyBehavior : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Bullet(Clone)")
+        /*if (collision.gameObject.name == "Bullet(Clone)")
         {
             _gameManager.E_HP -= 1;
             Debug.LogFormat("Critical hit!");
@@ -79,11 +79,6 @@ public class EnemyBehavior : MonoBehaviour
                 Debug.Log("Enemy down.");
             }
         }
-
-        if (collision.gameObject.name == "Player")
-        {
-            _gameManager.P_HP -= 1;
-        }
         
         if (_gameManager.E_HP <= 7)
         {
@@ -94,7 +89,15 @@ public class EnemyBehavior : MonoBehaviour
                 _rend.material.SetColor("_Color", Color.red);
             }
         }
+        
+         
+         */
 
+        if (collision.gameObject.name == "PlayerArmature")
+        {
+            _gameManager.P_HP -= 1;
+        }
+        
     }
 
     void InitializePatrolRoute()
