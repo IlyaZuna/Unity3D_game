@@ -25,8 +25,9 @@ public class GameBehavior : MonoBehaviour
                 labelText = "You’ve found all the items!";
                 showWinScreen = true;
 
-                Time.timeScale = 0f;
+                SceneManager.LoadScene("Labirint");
             }
+
             else
             {
                 labelText = "Item found, only " + (maxItems - _itemsCollected) + " more to go!";
@@ -46,8 +47,10 @@ public class GameBehavior : MonoBehaviour
             {
                 labelText = "You want another life with that?";
                 showLossScreen = true;
-                Time.timeScale = 0;
+
+                SceneManager.LoadScene("Labirint"); ;
             }
+
             else
             {
                 labelText = "Ouch... that’s got hurt.";
@@ -68,9 +71,8 @@ public class GameBehavior : MonoBehaviour
         {
             if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 50, 200, 100), "YOU WON!"))
             {
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene("Labirint");
 
-                Time.timeScale = 1.0f;
             }
         }
     }
