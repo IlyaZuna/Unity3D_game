@@ -5898,7 +5898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   labelText: Collect all 7 items and win your freedom!
-  maxItems: 7
+  maxItems: 0
   showWinScreen: 0
   showLossScreen: 0
 --- !u!4 &1767115091
