@@ -1225,10 +1225,8 @@ MonoBehaviour:
   sphere: {fileID: 183074914680656848, guid: 765f1b357d9539f408741c0f88c2273d, type: 3}
   bulletSpeed: 100
   sphereSpeed: 5
-  bulletSpawnX: 0
   bulletSpawnY: 0.15
   bulletSpawnZ: 0.3
-  bombSpawnX: 0
   bombSpawnY: 0.3
   bombSpawnZ: 0.3
   isGrounded: 0
@@ -4346,6 +4344,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6faac3a44ec003c4ba454db798c153f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  labelText: Collect all 7 items and win your freedom!
+  maxItems: 7
+  showWinScreen: 0
+  showLossScreen: 0
 --- !u!4 &1767115091
 Transform:
   m_ObjectHideFlags: 0
@@ -5664,6 +5666,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603298767366970382, guid: aac4112f07c4d3d428272808eabd48d7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.2930946
       objectReference: {fileID: 0}
     - target: {fileID: 5349823296701416934, guid: aac4112f07c4d3d428272808eabd48d7,
         type: 3}
