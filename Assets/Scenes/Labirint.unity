@@ -5390,6 +5390,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6faac3a44ec003c4ba454db798c153f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  labelText: Collect all 7 items and win your freedom!
+  maxItems: 7
+  showWinScreen: 0
+  showLossScreen: 0
 --- !u!4 &1767115091
 Transform:
   m_ObjectHideFlags: 0
@@ -6704,7 +6708,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 6651014434752741621}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4469006886716465465}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e087ecce43ebbff45a1b360637807d93, type: 3}
@@ -6847,18 +6851,12 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 6651014434752741621}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4469006886716465465}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &4469006886716465465 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7081976892196954572, guid: 9d00ad3a54e4db241a6078f933296b00,
-    type: 3}
-  m_PrefabInstance: {fileID: 6651014434752741621}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5066215505853526773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7245,7 +7243,7 @@ PrefabInstance:
     - target: {fileID: 4462789309861097392, guid: 1181bdb6a6f56be4586ff8d40b332208,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.11854744
       objectReference: {fileID: 0}
     - target: {fileID: 4462789309861097392, guid: 1181bdb6a6f56be4586ff8d40b332208,
         type: 3}
@@ -7255,7 +7253,7 @@ PrefabInstance:
     - target: {fileID: 4462789309861097392, guid: 1181bdb6a6f56be4586ff8d40b332208,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.36908484
       objectReference: {fileID: 0}
     - target: {fileID: 4462789309861097392, guid: 1181bdb6a6f56be4586ff8d40b332208,
         type: 3}
@@ -7395,12 +7393,12 @@ PrefabInstance:
     - target: {fileID: 6460991407827282406, guid: f583d8d6b88b5644c9a064b86964090d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.008041024
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 6460991407827282406, guid: f583d8d6b88b5644c9a064b86964090d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.45
+      value: -0.43
       objectReference: {fileID: 0}
     - target: {fileID: 6460991407827282406, guid: f583d8d6b88b5644c9a064b86964090d,
         type: 3}
@@ -7741,20 +7739,6 @@ PrefabInstance:
       objectReference: {fileID: 192323520877083973}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0afe37a749b25b849a6eb6db8e8a27de, type: 3}
---- !u!136 &7182931815593665018
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4469006886716465465}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &7708247426043215673
 PrefabInstance:
   m_ObjectHideFlags: 0

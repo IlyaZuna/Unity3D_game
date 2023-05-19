@@ -6,7 +6,12 @@ public class GameBehavior : MonoBehaviour
 {
     private int _itemsCollected = 0;
     private int _playerHP = 10;
-    private int _enemyHP = 10;
+    //private int _enemyHP = 10;
+
+    public string labelText = "Collect all 7 items and win your freedom!";
+    public int maxItems = 7;
+    public bool showWinScreen = false;
+    public bool showLossScreen = false;
 
     public int Items
     {
@@ -14,7 +19,14 @@ public class GameBehavior : MonoBehaviour
         set
         {
             _itemsCollected = value;
-            Debug.LogFormat("Items: {0}", _itemsCollected);
+            if (_itemsCollected >= maxItems)
+            {
+                labelText = "You’ve found all the items!";
+            }
+            else
+            {
+                labelText = "Item found, only " + (maxItems - _itemsCollected) + " more to go!";
+            }
         }
     }
 
@@ -25,19 +37,31 @@ public class GameBehavior : MonoBehaviour
         {
             _playerHP = value;
             Debug.LogFormat("Lives: {0}", _playerHP);
-        }
+            
+            if (_playerHP <= 0)
+            {
+                labelText = "You want another life with that?";
+                showLossScreen = true;
+                Time.timeScale = 0;
+            }
+            else
+            {
+                labelText = "Ouch... that’s got hurt.";
+            }
 
+        }
     }
 
-    public int E_HP
+    void OnGUI()
     {
-        get { return _enemyHP; }
-        set
-        {
-            _enemyHP = value;
-            Debug.LogFormat("Enemy_Lives: {0}", _enemyHP);
-        }
+        GUI.Box(new Rect(20, 20, 1500, 25), "Player Health:" + _playerHP);
+
+        GUI.Box(new Rect(20, 50, 1500, 25), "Items Collected: " + _itemsCollected);
+
+        GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height - 50, 300, 50), labelText);
+
     }
+
 
     void Start()
     {

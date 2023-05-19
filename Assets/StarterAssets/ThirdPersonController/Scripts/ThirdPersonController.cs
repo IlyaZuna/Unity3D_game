@@ -75,6 +75,9 @@ namespace StarterAssets
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
 
+        private SphereCollider _col;
+        private GameBehavior _gameManager;
+        private MeshRenderer _rend;
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -105,8 +108,7 @@ namespace StarterAssets
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
-        private GameBehavior _gameManager;
-        private MeshRenderer _rend;
+        
 
         private const float _threshold = 0.01f;
 
@@ -143,6 +145,7 @@ namespace StarterAssets
             _input = GetComponent<StarterAssetsInputs>();
             _gameManager = GameObject.Find("GameManager").GetComponent<GameBehavior>();
             _rend = GetComponent<MeshRenderer>();
+            _col = GetComponent<SphereCollider>();
 #if ENABLE_INPUT_SYSTEM
             _playerInput = GetComponent<PlayerInput>();
 #else
@@ -393,10 +396,14 @@ namespace StarterAssets
             }
         }
 
+       
         void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.name == "Enemy")
             {
+                              
+                _gameManager.P_HP -= 1;
+                
                 if (_gameManager.P_HP <= 7)
                 {
                     _rend.material.SetColor("_Color", Color.yellow);

@@ -12,14 +12,14 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] private Animator _animator;
     private int locationIndex = 0;
     private NavMeshAgent agent;
-    private SphereCollider col;
+    private SphereCollider _col;
     private GameBehavior _gameManager;
     private MeshRenderer _rend;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        col = GetComponent<SphereCollider>();
+        _col = GetComponent<SphereCollider>();
         player = GameObject.Find("PlayerArmature").transform;
         _gameManager = GameObject.Find("GameManager").GetComponent<GameBehavior>();
         _rend = GetComponent<MeshRenderer>();
@@ -40,17 +40,19 @@ public class EnemyBehavior : MonoBehaviour
         if (other.name == "PlayerArmature")
         {
             agent.destination = player.position;
-            agent.speed = agent.speed + 2f;
-            col.radius = col.radius + 1f;
+            agent.speed = agent.speed + 5f;
+            _col.radius = _col.radius + 1f;
+            
             Debug.Log("Player detected - attack!");
+            _gameManager.P_HP -= 1;
         }
     }
     void OnTriggerExit(Collider other)
     {
         if (other.name == "PlayerArmature")
         {
-            agent.speed = agent.speed - 2f;
-            col.radius = col.radius - 1f;
+            agent.speed = agent.speed - 5f;
+            _col.radius = _col.radius - 1f;
 
             Debug.Log("Player out of range, resume patrol");
         }
@@ -58,46 +60,11 @@ public class EnemyBehavior : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        /*if (collision.gameObject.name == "Bullet(Clone)")
-        {
-            _gameManager.E_HP -= 1;
-            Debug.LogFormat("Critical hit!");
-            if (_gameManager.E_HP == 0)
-            {
-                Destroy(this.gameObject);
-                Debug.Log("Enemy down.");
-            }
-        }
-        
-        if (collision.gameObject.name == "Sphere(Clone)")
-        {
-            _gameManager.E_HP -= 2;
-            Debug.LogFormat("Super Critical hit!");
-            if (_gameManager.E_HP <= 0)
-            {
-                Destroy(this.gameObject);
-                Debug.Log("Enemy down.");
-            }
-        }
-        
-        if (_gameManager.E_HP <= 7)
-        {
-            _rend.material.SetColor("_Color", Color.yellow);
-
-            if (_gameManager.E_HP <= 5)
-            {
-                _rend.material.SetColor("_Color", Color.red);
-            }
-        }
-        
-         
-         */
-
         if (collision.gameObject.name == "PlayerArmature")
         {
-            _gameManager.P_HP -= 1;
+          
         }
-        
+                
     }
 
     void InitializePatrolRoute()
