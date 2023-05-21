@@ -13,7 +13,7 @@ public class UIVirtualTouchZone : MonoBehaviour, IPointerDownHandler, IDragHandl
 
     [Header("Settings")]
     public bool clampToMagnitude;
-    public float magnitudeMultiplier = 4f;
+    public float magnitudeMultiplier = 3.5f;
     public bool invertXOutputValue;
     public bool invertYOutputValue;
 

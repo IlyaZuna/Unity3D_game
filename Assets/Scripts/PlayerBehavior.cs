@@ -88,28 +88,4 @@ public class PlayerBehavior : MonoBehaviour
             sphereRB.velocity = this.transform.forward * sphereSpeed;
         }
     }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.name == "Enemy")
-        {
-            if (_gameManager.P_HP <= 7) 
-            { 
-               _rend.material.SetColor("_Color", Color.yellow);
-
-                if (_gameManager.P_HP <= 5) 
-                {
-                    _rend.material.SetColor("_Color", Color.red);
-                }
-            } 
-
-        }
-    }
-
-
-    void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.name == "Enemy")
-        { }
-    }
 }
