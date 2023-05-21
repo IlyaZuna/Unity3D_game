@@ -9,8 +9,10 @@ public class ControlSceneAndMenu : MonoBehaviour
     // Start is called before the first frame update
     public GameObject buttonsMenu;
     public GameObject buttonsExit;
+    //public GameObject buttonsPause;
     public GameObject buttonsSettings;
     public GameObject LoadingScreen;
+    public GameObject PauseScreen;
 
     void Start()
     {
@@ -29,6 +31,15 @@ public class ControlSceneAndMenu : MonoBehaviour
         buttonsExit.SetActive(true);
     }
     
+    public void ShowPauseScene()
+    {
+        PauseScreen.SetActive(true);
+    }
+    public void ShowGameScene()
+    {
+        PauseScreen.SetActive(false);
+    }
+
     public void BackInMenu()
     {
         buttonsMenu.SetActive(true);
@@ -50,5 +61,12 @@ public class ControlSceneAndMenu : MonoBehaviour
         buttonsMenu.SetActive(false);
         LoadingScreen.SetActive(true);
         SceneManager.LoadScene(1);
+    }
+
+    public void LoadSceneMenu()
+    {
+        LoadingScreen.SetActive(true);
+        SceneManager.LoadScene(0);
+        //buttonsMenu.SetActive(true);
     }
 }

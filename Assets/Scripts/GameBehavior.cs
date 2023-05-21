@@ -61,11 +61,11 @@ public class GameBehavior : MonoBehaviour
 
     void OnGUI()
     {
-        GUI.Box(new Rect(100, 20, 150, 25), "PLAYER HEALTH:" + _playerHP);
+        GUI.Box(new Rect(50, 20, 150, 25), "PLAYER HEALTH:" + _playerHP);
 
-        GUI.Box(new Rect(100, 50, 150, 25), "ITEMS COLLECTED: " + _itemsCollected);
+        GUI.Box(new Rect(50, 50, 150, 25), "ITEMS COLLECTED: " + _itemsCollected);
 
-        GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height - 50, 300, 50), labelText);
+        GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height - 100, 300, 50), labelText);
 
         if (showWinScreen)
         {
