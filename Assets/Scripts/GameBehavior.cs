@@ -45,15 +45,15 @@ public class GameBehavior : MonoBehaviour
             
             if (_playerHP <= 0)
             {
-                labelText = "You want another life with that?";
+                labelText = "YOU WANT ANOTHER LIFE WITH THAT?";
                 showLossScreen = true;
 
-                SceneManager.LoadScene("Labirint"); ;
+                SceneManager.LoadScene("Labirint");
             }
 
             else
             {
-                labelText = "Ouch... that’s got hurt.";
+                labelText = "OUCH... THAT'S GOT HURT.";
             }
 
         }
@@ -61,9 +61,9 @@ public class GameBehavior : MonoBehaviour
 
     void OnGUI()
     {
-        GUI.Box(new Rect(100, 20, 150, 25), "Player Health:" + _playerHP);
+        GUI.Box(new Rect(100, 20, 150, 25), "PLAYER HEALTH:" + _playerHP);
 
-        GUI.Box(new Rect(100, 50, 150, 25), "Items Collected: " + _itemsCollected);
+        GUI.Box(new Rect(100, 50, 150, 25), "ITEMS COLLECTED: " + _itemsCollected);
 
         GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height - 50, 300, 50), labelText);
 
