@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameBehavior : MonoBehaviour
 {
     private int _itemsCollected = 0;
-    private int _playerHP = 10;
+    private int _playerHP = 25;
     //private int _enemyHP = 10;
 
     public string labelText = "Collect all 7 items and win your freedom!";
